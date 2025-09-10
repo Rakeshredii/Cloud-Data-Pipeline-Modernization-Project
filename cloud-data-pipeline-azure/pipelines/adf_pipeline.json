@@ -1,0 +1,31 @@
+{
+  "name": "ConfigDrivenIngestion",
+  "properties": {
+    "activities": [
+      {
+        "name": "IngestionNotebook",
+        "type": "DatabricksNotebook",
+        "typeProperties": {
+          "notebookPath": "/Repos/ingestion.py",
+          "baseParameters": {
+            "source_path": "dbfs:/FileStore/data/"
+          }
+        }
+      },
+      {
+        "name": "CleaningNotebook",
+        "type": "DatabricksNotebook",
+        "typeProperties": {
+          "notebookPath": "/Repos/cleaning.py"
+        }
+      },
+      {
+        "name": "TransformationNotebook",
+        "type": "DatabricksNotebook",
+        "typeProperties": {
+          "notebookPath": "/Repos/transformation.py"
+        }
+      }
+    ]
+  }
+}
